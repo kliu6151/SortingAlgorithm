@@ -30,15 +30,22 @@ public class sortingAlgorithms {
 
     public static void selectionSort(int[] arr)
     {
-        for(int i = 0; i < arr.length - 1; i++)
+        int i,j;
+        for(i = 0; i < arr.length - 1; i++)
         {
-            for(int j = i; j<arr.length; j++)
+            int min = i;
+            for(j = i + 1; j<arr.length - 1; j++)
             {
-                if(arr[j] < arr[j+1])
+                if (arr[j] > arr[j + 1])
                 {
-
+                    min = j;
+                }
+                if(min != i)
+                {
+                    swap(arr, i, min);
                 }
             }
+
         }
     }
 
