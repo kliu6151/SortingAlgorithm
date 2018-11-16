@@ -30,24 +30,41 @@ public class sortingAlgorithms {
 
     public static void selectionSort(int[] arr)
     {
-        int i,j;
-        for(i = 0; i < arr.length - 1; i++)
+        //Loops through unsorted array
+        for(int i = 0; i < arr.length - 1; i++)
         {
             int min = i;
-            for(j = i + 1; j<arr.length - 1; j++)
+            //Compares arr[i] with all other indexes
+            for(int j = i + 1; j<arr.length; j++)
             {
-                if (arr[j] > arr[j + 1])
+                //Sets min to the index with a number smaller the index it was currently at
+                if (arr[j] < arr[min])
                 {
                     min = j;
                 }
-                if(min != i)
-                {
-                    swap(arr, i, min);
-                }
+            }
+            //Swaps the two indexes, unless it is at the same position
+            if(min != i)
+            {
+                swap(arr, i, min);
             }
 
         }
     }
+
+    public static void insertionSort(int[] arr){
+    for(int i = 1; i < arr.length; i++) {
+        int mainValue = arr[i];
+        int j = i-1;
+
+        while (j>=0 && arr[j] > mainValue)
+        {
+            arr[j+1] = arr[j];
+            j = j-1;
+        }
+        arr[j+1] = mainValue;
+    }
+}
 
     //Creates an array of random integers
     public static int[] randIntArr(int count)
